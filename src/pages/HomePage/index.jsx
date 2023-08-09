@@ -8,6 +8,7 @@ export const HomePage = () => {
    const [cartList, setCartList] = useState([])
 
 
+
    useEffect(() => {
       const getProducts = async () => {
          const response = await fetch("https://hamburgueria-kenzie-json-serve.herokuapp.com/products/")
@@ -16,6 +17,24 @@ export const HomePage = () => {
       }
       getProducts()
    }, [])
+
+   useEffect(() => {
+      localStorage.getItem("@ProductList", JSON.stringify(productList))
+   }, [productList])
+
+   const addToCart = (product) => {
+      // const newItem = { cartList, id: crypto.randomUUID() }
+      // setCartList([...cartList, newItem])
+      if (!cartList.some(addProduct => addProduct.id === product.id)) {
+         setCartList([...cartList, product])
+         localStorage.setItem("@ProductList", JSON.stringify([...cartList, product]))
+      } else {
+         console.log("Produto já existe no carrinho")
+      }
+   }
+
+
+
 
    // useEffect montagem - carrega os produtos da API e joga em productList 
    // useEffect atualização - salva os produtos no localStorage (carregar no estado)
@@ -28,7 +47,7 @@ export const HomePage = () => {
       <>
          <Header />
          <main>
-            <ProductList productList={productList} />
+            <ProductList productList={productList} addToCart={addToCart} />
             <CartModal cartList={cartList} />
          </main>
       </>

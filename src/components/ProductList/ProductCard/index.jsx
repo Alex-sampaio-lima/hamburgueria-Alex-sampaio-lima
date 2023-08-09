@@ -1,9 +1,6 @@
-export const ProductCard = ({ product }) => {
+export const ProductCard = ({ product, addToCart }) => {
 
-    const addToCart = () => {
-        localStorage.setItem("@ProductList", JSON.stringify(product))
-    }
-    
+
     return (
         <li>
             <img src={product.img} alt={product.name} />
@@ -11,7 +8,7 @@ export const ProductCard = ({ product }) => {
                 <h3>{product.name}</h3>
                 <span>{product.category}</span>
                 <span>{product.price.toLocaleString('pt-BR', { style: "currency", currency: "BRL" })}</span>
-                <button onClick={addToCart}>Adicionar</button>
+                <button onClick={() => addToCart(product)}>Adicionar</button>
             </div>
         </li>
     )

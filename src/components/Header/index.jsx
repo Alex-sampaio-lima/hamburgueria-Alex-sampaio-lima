@@ -4,14 +4,15 @@ import { MdSearch, MdShoppingCart } from "react-icons/md";
 
 export const Header = () => {
    const [value, setValue] = useState("");
+   
 
    return (
       <header>
          <img src={Logo} alt="Logo Kenzie Burguer" />
          <div>
             <button>
-                <MdShoppingCart size={21} />
-                <span>0</span>
+               <MdShoppingCart size={21} />
+               <span>0</span>
             </button>
             <form>
                <input
@@ -20,7 +21,7 @@ export const Header = () => {
                   onChange={(e) => setValue(e.target.value)}
                />
                <button type="submit">
-                 <MdSearch size={21} />
+                  <MdSearch size={21} />
                </button>
             </form>
          </div>
