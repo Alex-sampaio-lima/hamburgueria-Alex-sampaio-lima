@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { CartModal } from "../../components/CartModal"
 import { Header } from "../../components/Header"
 import { ProductList } from "../../components/ProductList"
+import { MdShoppingCart } from "react-icons/md"
 
 export const HomePage = () => {
    const [productList, setProductList] = useState([])
@@ -23,8 +24,6 @@ export const HomePage = () => {
    }, [productList])
 
    const addToCart = (product) => {
-      // const newItem = { cartList, id: crypto.randomUUID() }
-      // setCartList([...cartList, newItem])
       if (!cartList.some(addProduct => addProduct.id === product.id)) {
          setCartList([...cartList, product])
          localStorage.setItem("@ProductList", JSON.stringify([...cartList, product]))
@@ -43,13 +42,16 @@ export const HomePage = () => {
    // filtro de busca
    // estilizar tudo com sass de forma responsiva
 
+
+   const [isOpen, setIsOpen] = useState(false)
+
    return (
       <>
-         <Header />
+         <Header setIsOpen={setIsOpen}></Header>
          <main>
             <ProductList productList={productList} addToCart={addToCart} />
-            <CartModal cartList={cartList} />
+            {isOpen ? <CartModal setIsOpen={setIsOpen} cartList={cartList}></CartModal> : null}
          </main>
       </>
-   );
-};
+   )
+}
