@@ -1,14 +1,14 @@
 import { HomePage } from "./pages/HomePage"
-// import { ToastContainer } from 'react-toastify'
+import "./styles/index.scss"
 
 function App() {
 
-    return (
-      <>
-        <HomePage />
-        {/* <ToastContainer/> */}
-      </>
-    )
-  }
+  return (
+    <>
+      <HomePage />
+      
+    </>
+  )
+}
 
 export default App
