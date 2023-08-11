@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import { CartModal } from "../../components/CartModal"
 import { Header } from "../../components/Header"
 import { ProductList } from "../../components/ProductList"
-import { toast } from 'react-toastify';
 
 export const HomePage = () => {
    const [productList, setProductList] = useState([])
@@ -30,16 +29,13 @@ export const HomePage = () => {
          setCartList([...cartList, product])
          localStorage.setItem("@ProductList", JSON.stringify([...cartList, product]))
          setCount(count + 1)
-         toast("Produto adicionado no carrinho")
+         console.log("Produto adicionado no carrinho")
       } else {
-         toast("Produto já existe no carrinho")
+         console.log("Produto já existe no carrinho")
       }
    }
 
-
-
-
-
+   
    // useEffect montagem - carrega os produtos da API e joga em productList 
    // useEffect atualização - salva os produtos no localStorage (carregar no estado)
    // adição, exclusão, e exclusão geral do carrinho
