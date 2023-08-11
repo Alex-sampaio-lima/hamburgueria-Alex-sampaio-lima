@@ -1,12 +1,15 @@
 import { HomePage } from "./pages/HomePage"
+import { ToastContainer } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.min.css';
 
 function App() {
-  
-  return (
-    <>
-      <HomePage />
-    </>
-  )
-}
+
+    return (
+      <>
+        <HomePage />
+        <ToastContainer/>
+      </>
+    )
+  }
 
 export default App

@@ -2,9 +2,20 @@ import { useState } from "react";
 import Logo from "../../assets/Logo.svg";
 import { MdSearch, MdShoppingCart } from "react-icons/md";
 
-export const Header = ({ setIsOpen }) => {
-   const [value, setValue] = useState("");
+export const Header = ({ setIsOpen, count, productList, setProductList }) => {
+   const [value, setValue] = useState("")
+   const [filteredItem, setfilteredItem] = useState([])
 
+
+   const filterProducts = () => {
+      productList.filter((product) => {
+         product.name == value
+         return setProductList([...productList,])
+      })
+   }
+
+   console.log(productList)
+   console.log(value)
 
    return (
       <header>
@@ -12,7 +23,7 @@ export const Header = ({ setIsOpen }) => {
          <div>
             <button onClick={() => setIsOpen(true)}>
                <MdShoppingCart size={21} />
-               <span>0</span>
+               <span>{count}</span>
             </button>
             <form>
                <input
@@ -20,7 +31,7 @@ export const Header = ({ setIsOpen }) => {
                   value={value}
                   onChange={(e) => setValue(e.target.value)}
                />
-               <button type="submit">
+               <button type="submit" onClick={() => filterProducts()}>
                   <MdSearch size={21} />
                </button>
             </form>

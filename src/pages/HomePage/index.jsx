@@ -2,11 +2,13 @@ import { useEffect, useState } from "react"
 import { CartModal } from "../../components/CartModal"
 import { Header } from "../../components/Header"
 import { ProductList } from "../../components/ProductList"
-import { MdShoppingCart } from "react-icons/md"
+import { toast } from 'react-toastify';
 
 export const HomePage = () => {
    const [productList, setProductList] = useState([])
    const [cartList, setCartList] = useState([])
+   const [isOpen, setIsOpen] = useState(false)
+   const [count, setCount] = useState(0)
 
 
 
@@ -27,10 +29,13 @@ export const HomePage = () => {
       if (!cartList.some(addProduct => addProduct.id === product.id)) {
          setCartList([...cartList, product])
          localStorage.setItem("@ProductList", JSON.stringify([...cartList, product]))
+         setCount(count + 1)
+         toast("Produto adicionado no carrinho")
       } else {
-         console.log("Produto já existe no carrinho")
+         toast("Produto já existe no carrinho")
       }
    }
+
 
 
 
@@ -43,14 +48,13 @@ export const HomePage = () => {
    // estilizar tudo com sass de forma responsiva
 
 
-   const [isOpen, setIsOpen] = useState(false)
 
    return (
       <>
-         <Header setIsOpen={setIsOpen}></Header>
+         <Header setIsOpen={setIsOpen} count={count} productList={productList} setProductList={setProductList}></Header>
          <main>
             <ProductList productList={productList} addToCart={addToCart} />
-            {isOpen ? <CartModal setIsOpen={setIsOpen} cartList={cartList}></CartModal> : null}
+            {isOpen ? <CartModal setIsOpen={setIsOpen} cartList={cartList} ></CartModal> : null}
          </main>
       </>
    )
