@@ -18,7 +18,7 @@ export const Header = ({ cartList, setIsOpen, productList, setProductList }) => 
 
 
    return (
-      <header className={`${style.headerContainer}`}>
+      <header className={`${style.headerContainer} spaceSection`}>
          <img className={`${style.imgContainer}`} src={Logo} alt="Logo Kenzie Burguer" />
          <div className={`${style.searchContainer}`} >
             <button className={`${style.buttonCart}`} onClick={() => setIsOpen(true)}>

@@ -1,5 +1,40 @@
+.heading {
+    font-family: var(--font-primary);
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 1.4;
 
 
+    &.two {
+        font-size: 22px;
+    }
+
+    &.three {
+        font-size: 18px;
+    }
+
+}
+
+.headline {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.body {
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.body-600 {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+}
 
 .buttonPriceText {
     width: 260px;
