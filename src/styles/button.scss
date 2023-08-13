@@ -14,3 +14,22 @@
         border: 2px solid var(--color-primary);
     }
 }
+
+.buttonRemoveAll {
+    display: flex;
+    width: 270px;
+    height: 60px;
+    max-width: 100%;
+    max-height: 60px;
+    padding: 0px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    border: 2px solid var(--color-grey-1);
+    background: var(--color-grey-1);
+
+    &:hover {
+        background-color: var(--color-grey-2);
+    }
+}

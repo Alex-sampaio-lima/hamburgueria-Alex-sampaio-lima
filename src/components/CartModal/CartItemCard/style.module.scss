@@ -1,0 +1,30 @@
+.containerProducts {
+    display: flex;
+    flex-direction: row;
+    width: 256px;
+    max-width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    button {
+        color: var(--gray-4, #BDBDBD);
+        font-family: Font Awesome 5 Free;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: normal;
+    }
+}
+
+.containerCartTitle {
+    display: flex;
+    gap: 10px;
+
+    img {
+        width: 82.259px;
+        height: 80px;
+        background-color: var(--color-grey-1);
+        border-radius: 5px;
+    }
+}

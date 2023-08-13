@@ -15,7 +15,7 @@ export const HomePage = () => {
 
    useEffect(() => {
       const getProducts = async () => {
-         const response = await fetch("https://hamburgueria-kenzie-json-serve.herokuapp.com/products/")
+         const response = await fetch("https://hamburgueria-kenzie-json-serve.herokuapp.com/products")
          const json = await response.json()
          setProductList(json)
       }
