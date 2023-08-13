@@ -4,8 +4,8 @@ import style from "./style.module.scss"
 
 export const CartModal = ({ cartList, children, setIsOpen, removeToCart, removeAllFromCart }) => {
    const total = cartList.reduce((prevValue, product) => {
-      return prevValue + product.price;
-   }, 0);
+      return prevValue + product.price
+   }, 0)
 
    return (
       <div className={`${style.modalOverlay}`} role="dialog">
@@ -29,5 +29,5 @@ export const CartModal = ({ cartList, children, setIsOpen, removeToCart, removeA
             <button className="buttonRemoveAll" onClick={() => removeAllFromCart()}>Remover todos</button>
          </div>
       </div>
-   );
-};
+   )
+}

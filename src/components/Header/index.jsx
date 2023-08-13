@@ -1,9 +1,7 @@
 import { useState } from "react"
 import Logo from "../../assets/Logo.svg"
-import { MdSearch, MdShoppingCart } from "react-icons/md"
 import style from "./style.module.scss"
 import cart from "../../assets/cart.svg"
-import contadorCarrinhoDeCompras from "../../assets/contadorCarrinhoDeCompras.svg"
 import searchButton from "../../assets/searchButton.svg"
 
 export const Header = ({ cartList, setIsOpen, productList, setProductList }) => {
@@ -42,5 +40,5 @@ export const Header = ({ cartList, setIsOpen, productList, setProductList }) => 
             </form>
          </div>
       </header>
-   );
-};
+   )
+}

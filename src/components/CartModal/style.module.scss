@@ -13,11 +13,11 @@
 .modalBox {
     display: flex;
     flex-direction: column;
-    width: 375px;
-    height: 480px;
+    width: 23.4375rem;
+    height: 30rem;
     position: relative;
-    border-radius: 8px;
-    max-width: 300px;
+    border-radius: 0.5rem;
+    max-width: 18.75rem;
     background-color: #FFF;
     align-items: center;
 
@@ -25,19 +25,19 @@
 
 .titleCart {
     display: flex;
-    width: 300px;
-    height: 50px;
+    width: 18.75rem;
+    height: 3.125rem;
     max-width: 100%;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
     flex-direction: row;
-    gap: 10px;
+    gap: 0.625rem;
     background-color: var(--color-primary);
     align-items: center;
     justify-content: space-around;
 
     h2 {
-        font-size: 16px;
+        font-size: 1rem;
         font-weight: bold;
         line-height: 1.4;
         font-family: var(--font-primary);
@@ -46,8 +46,8 @@
 }
 
 .iconButtonCloseModal {
-    width: 16px;
-    height: 24px;
+    width: 1rem;
+    height: 1.5rem;
     color: hsla(0, 0%, 100%, 0.50);
 
 }
@@ -57,7 +57,7 @@
     flex-direction: column;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    height: 250px;
+    height: 15.625rem;
     gap: 1rem;
     overflow-y: auto;
 }
@@ -73,26 +73,26 @@
     max-width: 100%;
     width: 256px;
     margin-bottom: 1rem;
-    border-top: 2px solid var(--color-grey-1);
+    border-top: 0.125rem solid var(--color-grey-1);
     margin-top: 1rem;
     padding-top: 1rem;
 
     p {
         font-family: var(--font-primary);
-        font-size: 16px;
+        font-size: 1rem;
         font-weight: 400;
         line-height: 1.4;
         color: var(--color-grey-2);
     }
 
     span {
-        width: 66px;
+        width: 4.125rem;
         color: var(--color-grey-2);
         font-family: var(--font-primary);
-        font-size: 14px;
+        font-size: 0.875rem;
         font-style: normal;
         font-weight: 600;
-        line-height: 24px;
+        line-height: 1.5rem;
     }
 }
 
