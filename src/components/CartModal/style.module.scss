@@ -62,6 +62,11 @@
     overflow-y: auto;
 }
 
+.containerCartItem::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
 .cartTotalMoney {
     display: flex;
     justify-content: space-between;
@@ -88,5 +93,116 @@
         font-style: normal;
         font-weight: 600;
         line-height: 24px;
+    }
+}
+
+
+
+
+
+
+
+
+
+@media (min-width: 768px) {
+    .modalOverlay {
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        inset: 0;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.3);
+        max-width: 100%;
+    }
+
+    .modalBox {
+        display: flex;
+        flex-direction: column;
+        width: 500px;
+        height: 500px;
+        position: relative;
+        border-radius: 8px;
+        max-width: 500px;
+        background-color: #FFF;
+        align-items: center;
+
+    }
+
+    .titleCart {
+        display: flex;
+        width: 500px;
+        height: 50px;
+        max-width: 100%;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        flex-direction: row;
+        gap: 10px;
+        background-color: var(--color-primary);
+        align-items: center;
+        padding: 1rem;
+        justify-content: space-between;
+
+        h2 {
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 1.4;
+            font-family: var(--font-primary);
+            color: #FFF;
+        }
+    }
+
+    .iconButtonCloseModal {
+        width: 16px;
+        height: 24px;
+        color: hsla(0, 0%, 100%, 0.50);
+
+    }
+
+    .containerCartItem {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        height: 250px;
+        width: 500px;
+        gap: 1rem;
+        overflow-y: auto;
+
+    }
+
+    .containerCartItem::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
+
+    .cartTotalMoney {
+        display: flex;
+        justify-content: space-between;
+        max-width: 100%;
+        width: 473px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-top: 2px solid var(--color-grey-1);
+        margin-top: 1rem;
+        padding-top: 1rem;
+
+        p {
+            font-family: var(--font-primary);
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.4;
+            color: var(--color-grey-2);
+        }
+
+        span {
+            width: 66px;
+            color: var(--color-grey-2);
+            font-family: var(--font-primary);
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 24px;
+        }
     }
 }

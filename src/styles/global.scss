@@ -8,5 +8,15 @@
 
     --font-primary: "Inter", sans-serif;
 
-
+    main {
+        display: flex;
+        width: 1600px;
+        max-width: 100%;
+        min-width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        padding: 1.3125rem;
+        padding-top: 2rem;
+    }
 }

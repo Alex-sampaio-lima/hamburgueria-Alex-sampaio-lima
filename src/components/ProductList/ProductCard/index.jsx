@@ -6,8 +6,8 @@ export const ProductCard = ({ product, addToCart }) => {
         <li className={`${style.productsContainer}`}>
             <img className={`${style.productImg}`} src={product.img} alt={product.name} />
             <div>
-                <h3>{product.name}</h3>
-                <span>{product.category}</span>
+                <h3 className="heading three">{product.name}</h3>
+                <span className="headline">{product.category}</span>
                 <span className="buttonPriceText">{product.price.toLocaleString('pt-BR', { style: "currency", currency: "BRL" })}</span>
                 <button className="button-primary" onClick={() => addToCart(product)}>Adicionar</button>
             </div>

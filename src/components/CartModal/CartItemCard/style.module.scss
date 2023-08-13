@@ -28,3 +28,47 @@
         border-radius: 5px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 768px) {
+    .containerProducts {
+        display: flex;
+        flex-direction: row;
+        width: 500px;
+        max-width: 100%;
+        align-items: center;
+        padding: 1rem;
+        gap: 1rem;
+        justify-content: space-between;
+
+        button {
+            color: var(--gray-4, #BDBDBD);
+            font-family: Font Awesome 5 Free;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 900;
+            line-height: normal;
+        }
+    }
+
+    .containerCartTitle {
+        display: flex;
+        gap: 10px;
+
+        img {
+            width: 82.259px;
+            height: 80px;
+            background-color: var(--color-grey-1);
+            border-radius: 5px;
+        }
+    }
+}
