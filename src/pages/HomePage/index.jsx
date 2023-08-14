@@ -11,7 +11,6 @@ export const HomePage = () => {
    const [cartList, setCartList] = useState(localCartList ? JSON.parse(localCartList) : [])
    const [isOpen, setIsOpen] = useState(false)
 
-   console.log(cartList)
 
    useEffect(() => {
       const getProducts = async () => {
@@ -38,7 +37,6 @@ export const HomePage = () => {
    const removeToCart = (removeId) => {
       const removeCart = cartList.filter(product => product.id !== removeId)
       setCartList(removeCart)
-      console.log(removeId)
    }
 
 
