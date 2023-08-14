@@ -4,19 +4,21 @@ import { Header } from "../../components/Header"
 import { ProductList } from "../../components/ProductList"
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { api } from "../../services/api"
+
 
 export const HomePage = () => {
    const localCartList = localStorage.getItem("@cartList")
    const [productList, setProductList] = useState([])
    const [cartList, setCartList] = useState(localCartList ? JSON.parse(localCartList) : [])
    const [isOpen, setIsOpen] = useState(false)
+   const [value, setValue] = useState("")
 
 
    useEffect(() => {
       const getProducts = async () => {
-         const response = await fetch("https://hamburgueria-kenzie-json-serve.herokuapp.com/products")
-         const json = await response.json()
-         setProductList(json)
+         const { data } = await api.get("/products", { params: { name_like: value } })
+         setProductList(data)
       }
       getProducts()
    }, [])
@@ -55,7 +57,7 @@ export const HomePage = () => {
    return (
       <>
          <ToastContainer />
-         <Header cartList={cartList} setIsOpen={setIsOpen}  productList={productList} setProductList={setProductList}></Header>
+         <Header setValue={setValue} cartList={cartList} setIsOpen={setIsOpen} productList={productList} setProductList={setProductList}></Header>
          <main>
             <ProductList productList={productList} addToCart={addToCart} />
             {isOpen ? <CartModal setIsOpen={setIsOpen} cartList={cartList} removeToCart={removeToCart} removeAllFromCart={removeAllFromCart} ></CartModal> : null}

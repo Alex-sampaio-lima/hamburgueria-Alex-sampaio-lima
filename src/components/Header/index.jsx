@@ -4,21 +4,18 @@ import style from "./style.module.scss"
 import cart from "../../assets/cart.svg"
 import searchButton from "../../assets/searchButton.svg"
 
-export const Header = ({ cartList, setIsOpen, productList, setProductList }) => {
-   const [value, setValue] = useState("")
+export const Header = ({ setValue, cartList, setIsOpen, productList, setProductList }) => {
 
-   useEffect(() => {
+   // useEffect(() => {
       const filterProducts = () => {
          const productsFiltered = productList.filter((product) => {
-            // console.log(product)
             console.log(product.name[2])
             return value === product.name
          })
          setProductList(productsFiltered)
-         // console.log(productsFiltered)
       }
-      filterProducts()
-   }, [value])
+      // filterProducts()
+   // }, [value])
 
 
    return (
