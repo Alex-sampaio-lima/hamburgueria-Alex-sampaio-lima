@@ -21,7 +21,7 @@ export const HomePage = () => {
          setProductList(data)
       }
       getProducts()
-   }, [])
+   }, [value])
 
    useEffect(() => {
       localStorage.setItem("@cartList", JSON.stringify(cartList))
@@ -47,17 +47,10 @@ export const HomePage = () => {
       setCount(0)
    }
 
-   // useEffect montagem - carrega os produtos da API e joga em productList 
-   // useEffect atualização - salva os produtos no localStorage (carregar no estado)
-   // adição, exclusão, e exclusão geral do carrinho
-   // renderizações condições e o estado para exibir ou não o carrinho
-   // filtro de busca
-   // estilizar tudo com sass de forma responsiva
-
    return (
       <>
          <ToastContainer />
-         <Header setValue={setValue} cartList={cartList} setIsOpen={setIsOpen} productList={productList} setProductList={setProductList}></Header>
+         <Header value={value} setValue={setValue} cartList={cartList} setIsOpen={setIsOpen} productList={productList} setProductList={setProductList}></Header>
          <main>
             <ProductList productList={productList} addToCart={addToCart} />
             {isOpen ? <CartModal setIsOpen={setIsOpen} cartList={cartList} removeToCart={removeToCart} removeAllFromCart={removeAllFromCart} ></CartModal> : null}
