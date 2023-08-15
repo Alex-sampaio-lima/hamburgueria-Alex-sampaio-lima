@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react"
 import Logo from "../../assets/Logo.svg"
 import style from "./style.module.scss"
 import cart from "../../assets/cart.svg"
