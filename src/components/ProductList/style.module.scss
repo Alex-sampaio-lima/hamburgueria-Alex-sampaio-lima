@@ -9,6 +9,31 @@
 @media (min-width: 768px) {
     .containerCards {
         display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 75rem;
+        height: 22.5625rem;
+        overflow-x: unset;
+        gap: 1.25rem;
+    }
+}
+
+@media (width: 1200px) {
+    .containerCards {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        width: 75rem;
+        height: 22.5625rem;
+        overflow-x: unset;
+        gap: 1.25rem;
+    }
+}
+
+@media (min-width: 1242px) {
+    .containerCards {
+        display: flex;
+        justify-content: flex-start;
         flex-wrap: wrap;
         width: 75rem;
         height: 22.5625rem;

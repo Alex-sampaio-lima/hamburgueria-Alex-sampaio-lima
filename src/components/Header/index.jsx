@@ -5,14 +5,6 @@ import searchButton from "../../assets/searchButton.svg"
 
 export const Header = ({ value, setValue, cartList, setIsOpen, productList, setProductList }) => {
 
-   const filterProducts = () => {
-      const productsFiltered = productList.filter((product) => {
-         console.log(product.name[2])
-         return value === product.name
-      })
-      setProductList(productsFiltered)
-   }
-
    return (
       <header className={`${style.headerContainer} spaceSection`}>
          <img className={`${style.imgContainer}`} src={Logo} alt="Logo Kenzie Burguer" />
@@ -29,9 +21,7 @@ export const Header = ({ value, setValue, cartList, setIsOpen, productList, setP
                   placeholder="Digite sua pesquisa"
                   onChange={(e) => setValue(e.target.value)}
                />
-               <button className={`${style.buttonSearch}`} type="submit" onClick={(event) => {
-                  event.preventDefault()
-               }}>
+               <button className={`${style.buttonSearch}`} type="submit">
                   <img src={searchButton} alt="Imagem do botão de pesquisa" />
                </button>
             </form>
