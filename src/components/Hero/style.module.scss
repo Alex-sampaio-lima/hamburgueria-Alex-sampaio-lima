@@ -116,7 +116,6 @@
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     box-shadow: var(--shadow-md);
-    animation: float 5s ease-in-out infinite;
 
     div {
         display: flex;
@@ -162,12 +161,6 @@
     from {
         opacity: 0;
         transform: translateY(12px);
-    }
-}
-
-@keyframes float {
-    50% {
-        transform: translateY(-6px);
     }
 }
 
