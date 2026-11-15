@@ -1,30 +1,45 @@
+import { FiSearch, FiShoppingBag, FiX } from "react-icons/fi"
 import Logo from "../../assets/Logo.svg"
+import { formatPrice } from "../../services/format"
 import style from "./style.module.scss"
-import cart from "../../assets/cart.svg"
-import searchButton from "../../assets/searchButton.svg"
 
-export const Header = ({ value, setValue, cartList, setIsOpen, productList, setProductList }) => {
+export const Header = ({ value, setValue, cartList, total, setIsOpen }) => {
+   const count = cartList.length
 
    return (
-      <header className={`${style.headerContainer} spaceSection`}>
-         <img className={`${style.imgContainer}`} src={Logo} alt="Logo Kenzie Burguer" />
-         <div className={`${style.searchContainer}`} >
-            <button className={`${style.buttonCart}`} onClick={() => setIsOpen(true)}>
-               <img src={cart} alt="Logo do carrinho de compras " />
-               <span className={`${style.countCart}`}>{cartList.length}</span>
-            </button>
-            <form className={`${style.formContainer}`}>
+      <header className={style.header}>
+         <div className={style.inner}>
+            <a href="#" className={style.logoLink} aria-label="Burguer Kenzie, voltar ao topo">
+               <img className={style.logo} src={Logo} alt="Burguer Kenzie" />
+            </a>
+
+            <form className={style.search} role="search" onSubmit={(e) => e.preventDefault()}>
+               <FiSearch className={style.searchIcon} aria-hidden="true" />
                <input
-                  className={`${style.inputHeader}`}
+                  className={style.input}
                   type="text"
                   value={value}
-                  placeholder="Digite sua pesquisa"
+                  placeholder="Buscar lanches, bebidas…"
+                  aria-label="Buscar produtos"
                   onChange={(e) => setValue(e.target.value)}
                />
-               <button className={`${style.buttonSearch}`} type="submit">
-                  <img src={searchButton} alt="Imagem do botão de pesquisa" />
-               </button>
+               {value && (
+                  <button type="button" className={style.clear} onClick={() => setValue("")} aria-label="Limpar busca">
+                     <FiX size={14} />
+                  </button>
+               )}
             </form>
+
+            <button
+               className={`${style.cart} ${count > 0 ? style.cartFilled : ""}`}
+               onClick={() => setIsOpen(true)}
+               aria-label={`Abrir carrinho, ${count} ${count === 1 ? "item" : "itens"}`}
+               title="Carrinho"
+            >
+               {count > 0 && <span key={count} className={style.badge}>{count}</span>}
+               <FiShoppingBag size={19} />
+               {count > 0 && <span className={style.cartTotal}>{formatPrice(total)}</span>}
+            </button>
          </div>
       </header>
    )

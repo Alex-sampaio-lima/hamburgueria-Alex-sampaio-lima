@@ -1,150 +1,196 @@
-.headerContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    width: 25.875rem;
-    height: 10.5rem;
-    min-width: 100%;
-    max-width: 100%;
-    background-color: var(--color-grey-0);
-    padding: 1.3125rem;
-    padding-top: 2rem;
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: saturate(180%) blur(16px);
+    -webkit-backdrop-filter: saturate(180%) blur(16px);
+    border-bottom: 1px solid var(--color-ring);
 }
 
-.buttonCart {
-    background-color: var(--color-grey-0);
-    width: 16.875rem;
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.0625rem;
-    margin-bottom: 0.625rem;
-    max-width: 100%;
-}
-
-.imgContainer {
-    width: 9.375rem;
-    height: 1.4283rem;
-}
-
-.searchContainer {
-    display: flex;
-    flex-direction: column;
+.inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+        "logo cart"
+        "search search";
     align-items: center;
+    gap: 0.75rem 1rem;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0.75rem 1rem;
+}
+
+.logoLink {
+    grid-area: logo;
+    display: inline-flex;
+    justify-self: start;
+    border-radius: var(--radius-sm);
+}
+
+.logo {
+    width: auto;
+    height: 1.375rem;
+}
+
+.search {
+    grid-area: search;
+    position: relative;
+}
+
+.searchIcon {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    font-size: 1.0625rem;
+    color: var(--color-grey-2);
+    pointer-events: none;
+    transition: color 0.2s var(--ease);
+}
+
+.input {
+    width: 100%;
+    height: 2.75rem;
+    padding: 0 2.75rem 0 2.75rem;
+    border-radius: var(--radius-full);
+    border: 1px solid transparent;
     background: var(--color-grey-0);
+    font-size: 0.9375rem;
+    transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease), background 0.2s var(--ease);
+
+    &::placeholder {
+        color: var(--color-grey-2);
+    }
+
+    &:hover {
+        background: #EFEFEF;
+    }
+
+    &:focus {
+        outline: none;
+        background: var(--color-white);
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 4px var(--color-primary-soft);
+    }
 }
 
-.countCart {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    bottom: 45%;
-    right: 3%;
-    color: white;
-    background-color: var(--color-primary);
-    font-weight: 600;
+.search:focus-within .searchIcon {
+    color: var(--color-primary);
+}
+
+.clear {
+    position: absolute;
+    top: 50%;
+    right: 0.625rem;
+    transform: translateY(-50%);
+    display: grid;
+    place-items: center;
     width: 1.5rem;
-    height: 1.25rem;
-    border-radius: 0.625rem;
+    height: 1.5rem;
+    border-radius: var(--radius-full);
+    background: var(--color-grey-1);
+    color: var(--color-grey-3);
+    transition: background 0.2s var(--ease);
+
+    &:hover {
+        background: #D2D2D2;
+    }
 }
 
-.formContainer {
-    max-width: 100%;
-    height: 6.25rem;
-}
-
-.inputHeader {
-    display: flex;
-    height: 3.75rem;
-    width: 18.25rem;
-    max-width: 100%;
-    min-width: 100%;
-    padding: 0rem 0.625rem 0rem 0.9375rem;
-    border-radius: 0.5rem;
-    border: 0.125rem solid var(--grey-100, #E0E0E0);
-    background: #ffffff;
-}
-
-.buttonSearch {
+.cart {
+    grid-area: cart;
     position: relative;
-    left: 86%;
-    bottom: 49%;
-    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-width: 2.75rem;
+    height: 2.75rem;
+    padding: 0 0.8125rem;
+    border-radius: var(--radius-full);
+    background: var(--color-grey-0);
+    color: var(--color-grey-3);
+    font-size: 0.875rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    transition: background 0.2s var(--ease), color 0.2s var(--ease), transform 0.15s var(--ease);
 
+    &:hover {
+        background: var(--color-grey-1);
+    }
+
+    &:active {
+        transform: scale(0.96);
+    }
+}
+
+.cartFilled {
+    background: var(--color-grey-3);
+    color: var(--color-white);
+
+    &:hover {
+        background: #1F1F1F;
+    }
+}
+
+.cartTotal {
+    display: none;
+}
+
+.badge {
+    position: absolute;
+    top: -0.3125rem;
+    right: -0.3125rem;
+    display: grid;
+    place-items: center;
+    min-width: 1.25rem;
+    height: 1.25rem;
+    padding: 0 0.3125rem;
+    border-radius: var(--radius-full);
+    border: 2px solid var(--color-white);
+    background: var(--color-primary);
+    color: var(--color-white);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    line-height: 1;
+    animation: pop 0.35s var(--ease);
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.4);
+    }
+
+    60% {
+        transform: scale(1.2);
+    }
 }
 
 @media (min-width: 768px) {
-    .headerContainer {
-        display: flex;
-        width: 100rem;
-        max-width: 100%;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-around;
+    .inner {
+        grid-template-columns: auto 1fr auto;
+        grid-template-areas: "logo search cart";
+        gap: 2rem;
+        height: var(--header-h);
+        padding: 0 1.5rem;
     }
 
-    .buttonCart {
-        display: flex;
-        max-width: 100%;
-        width: 18.25rem;
-        height: 9.25rem;
-        align-items: center;
-        margin-bottom: 0px;
+    .logo {
+        height: 1.5rem;
     }
 
-    .imgContainer {
-        width: 9.375rem;
-        height: 1.4283rem;
+    .search {
+        justify-self: center;
+        width: 100%;
+        max-width: 30rem;
     }
 
-    .searchContainer {
-        display: flex;
-        background: var(--color-grey-0);
-        flex-direction: row;
-        width: 21.875rem;
+    .cartFilled {
+        padding: 0 1.125rem 0 1rem;
     }
 
-    .countCart {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        bottom: 10%;
-        right: 9%;
-        color: white;
-        background-color: var(--color-primary);
-        font-weight: 600;
-        width: 1.5rem;
-        height: 1.25rem;
-        border-radius: 0.625rem;
+    .cartFilled .cartTotal {
+        display: inline;
     }
-
-    .formContainer {
-        display: flex;
-        max-width: 100%;
-        width: 18.25rem;
-        height: 9.25rem;
-        align-items: center;
-    }
-
-    .inputHeader {
-        display: flex;
-        height: 3.75rem;
-        width: 18.25rem;
-        max-width: 100%;
-        min-width: 100%;
-        padding: 0rem 0.625rem 0rem 0.9375rem;
-        border-radius: 0.5rem;
-        border: 0.125rem solid var(--grey-100, #E0E0E0);
-        background: #ffffff;
-    }
-
-    .buttonSearch {
-        position: relative;
-        left: -13%;
-        bottom: -1%;
-        transform: translateX(-50%);
-
-    }
-
 }
